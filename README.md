@@ -1,4 +1,4 @@
-# 🚀 Claude Skill Templates
+# Claude Skill Templates
 
 Kumpulan template *skills* modular untuk konfigurasi AI Coding Assistant (seperti Claude Code, Cursor, atau AI agent sejenis). Proyek ini memecah konfigurasi *monolithic* `CLAUDE.md` menjadi file-file berformat *skill* yang spesifik, kontekstual, dan terfokus pada satu area pengembangan.
 
@@ -6,7 +6,7 @@ Didasarkan pada prinsip dan praktik terbaik **"Cara Membuat SKILL.md untuk Claud
 
 ---
 
-## 🎯 Mengapa Proyek Ini Dibuat?
+## Mengapa Proyek Ini Dibuat?
 
 Seringkali, pengembang memasukkan semua aturan dan konteks proyek ke dalam satu file besar (contoh: `CLAUDE.md`). Pendekatan ini memiliki kelemahan mendasar saat digunakan bersama AI:
 1. **Context Overload:** AI sering kebingungan menentukan prioritas instruksi jika file panduan terlalu panjang dan kompleks.
@@ -16,7 +16,7 @@ Seringkali, pengembang memasukkan semua aturan dan konteks proyek ke dalam satu 
 * **Fokus & Tajam:** Setiap file idealnya hanya berisi 5-15 baris instruksi spesifik.
 * **Injeksi Konteks Akurat:** AI dapat memanggil dan menerapkan *skill* yang tepat sesuai dengan jenis tugas atau ekstensi file yang sedang dikerjakan.
 
-## 📁 Daftar Template Skill
+## Daftar Template Skill
 
 Setiap file di bawah ini mewakili satu *domain* aturan spesifik di dalam proyek. Template menggunakan *placeholders* `[...]` yang siap Anda isi dengan *tech-stack* spesifik Anda.
 
@@ -33,9 +33,9 @@ Setiap file di bawah ini mewakili satu *domain* aturan spesifik di dalam proyek.
 | `testing-convention.md` | **Testing** | Aturan penulisan *unit test*, *integration test*, dan metrik *coverage*. |
 | `project-guardrails.md` | **Do Not (Guardrails)** | Hal-hal yang **dilarang keras** dilakukan oleh AI (menghapus komen, dsb). |
 
-> 💡 **Praktik Terbaik:** Konteks umum (seperti *Project Overview*, *Tech Stack Utama*, atau *Environment Variables*) **TIDAK** disarankan menjadi *skill* terpisah. Hal tersebut bersifat referensi makro dan sebaiknya tetap diletakkan di `CLAUDE.md` utama agar selalu dibaca di awal percakapan.
+> **Praktik Terbaik:** Konteks umum (seperti *Project Overview*, *Tech Stack Utama*, atau *Environment Variables*) **TIDAK** disarankan menjadi *skill* terpisah. Hal tersebut bersifat referensi makro dan sebaiknya tetap diletakkan di `CLAUDE.md` utama agar selalu dibaca di awal percakapan.
 
-## 🚀 Panduan Penggunaan
+## Panduan Penggunaan
 
 1. **Salin Template:**
    Unduh atau salin file `.md` yang Anda butuhkan dari repositori ini, lalu masukkan ke dalam direktori konfigurasi AI di *root* proyek Anda (misalnya `.claude/skills/` atau `.cursor/rules/`).
