@@ -1,45 +1,54 @@
-# Skill Templates — .claude/skills/
+# 🚀 Claude Skill Templates
 
-Kumpulan ini adalah hasil "pecahan" dari satu CLAUDE.md project (file konfigurasi
-umum/satu-pintu) menjadi beberapa SKILL.md spesifik, sesuai format dan prinsip
-dari guide "Cara Membuat SKILL.md untuk Claude Code" (@satriabahari).
+Kumpulan template *skills* modular untuk konfigurasi AI Coding Assistant (seperti Claude Code, Cursor, atau AI agent sejenis). Proyek ini memecah konfigurasi *monolithic* `CLAUDE.md` menjadi file-file berformat *skill* yang spesifik, kontekstual, dan terfokus pada satu area pengembangan.
 
-**Status: TEMPLATE FORMAT** — semua placeholder `[seperti ini]` belum diisi.
-Isi dulu sesuai stack & aturan project kamu sebelum dipakai beneran.
+Didasarkan pada prinsip dan praktik terbaik **"Cara Membuat SKILL.md untuk Claude Code"** (@satriabahari).
 
-## Kenapa dipecah, bukan digabung jadi satu file besar?
-Sesuai prinsip guide-nya sendiri:
-1. "Mulai dari yang spesifik" — skill per topik/stack, bukan satu skill general.
-2. "Jangan panjang-panjang" — idealnya 5-15 baris aturan per skill, biar Claude
-   gak bingung prioritas. Kalau semua section CLAUDE.md digabung jadi satu
-   SKILL.md, isinya akan jauh lebih panjang dari itu.
-3. Auto-inject jadi lebih akurat — skill yang lebih sempit konteksnya lebih
-   mudah "dipanggil" sesuai jenis file/tugas yang sedang dikerjakan.
+---
 
-## Daftar File
-| File | Diambil dari section CLAUDE.md |
-|---|---|
-| naming-convention.md       | 5. Naming Conventions |
-| code-convention.md         | 6. Code Conventions |
-| component-rules.md         | 7. Component Rules |
-| styling-convention.md      | 8. Styling Rules |
-| api-data-fetching.md       | 9. API & Data Fetching Rules |
-| state-management.md        | 10. State Management Rules |
-| performance-optimization.md| 11. Performance Rules |
-| git-workflow.md            | 12. Git Rules |
-| testing-convention.md      | 14. Testing |
-| project-guardrails.md      | 15. Do Not |
+## 🎯 Mengapa Proyek Ini Dibuat?
 
-> Catatan: section 1-4 (Project Overview, Tech Stack, Commands, Project
-> Structure) dan 13/16 (Features, Environment Variables) sengaja TIDAK
-> dijadikan skill terpisah — sifatnya overview/referensi project, bukan
-> "aturan kerja" berulang, jadi lebih cocok tetap di CLAUDE.md utama
-> daripada di .claude/skills/.
+Seringkali, pengembang memasukkan semua aturan dan konteks proyek ke dalam satu file besar (contoh: `CLAUDE.md`). Pendekatan ini memiliki kelemahan mendasar saat digunakan bersama AI:
+1. **Context Overload:** AI sering kebingungan menentukan prioritas instruksi jika file panduan terlalu panjang dan kompleks.
+2. **Relevansi Rendah:** Aturan *styling* (CSS) tidak relevan saat AI sedang mengerjakan logika *backend* atau *database*, namun tetap terbaca karena berada di file yang sama, membuang token dan mengaburkan fokus AI.
 
-## Cara Pakai
-1. Copy semua file `.md` ke folder `.claude/skills/` di root project kamu.
-2. Isi setiap placeholder `[...]` sesuai stack & aturan project (contoh:
-   `[Bahasa, contoh: TypeScript]` → `TypeScript`).
-3. Sesuaikan/hapus skill yang tidak relevan (misal kalau project full-backend,
-   `component-rules.md` & `styling-convention.md` bisa dihapus).
-4. Commit folder `.claude/skills/` ke repo biar satu tim pakai standar sama.
+**Solusinya:** Memecah aturan proyek yang kaku menjadi file-file *skill* modular.
+* **Fokus & Tajam:** Setiap file idealnya hanya berisi 5-15 baris instruksi spesifik.
+* **Injeksi Konteks Akurat:** AI dapat memanggil dan menerapkan *skill* yang tepat sesuai dengan jenis tugas atau ekstensi file yang sedang dikerjakan.
+
+## 📁 Daftar Template Skill
+
+Setiap file di bawah ini mewakili satu *domain* aturan spesifik di dalam proyek. Template menggunakan *placeholders* `[...]` yang siap Anda isi dengan *tech-stack* spesifik Anda.
+
+| Nama File | Fokus / Area | Kegunaan |
+|-----------|--------------|----------|
+| `naming-convention.md` | **Naming Conventions** | Aturan penamaan variabel, fungsi, tipe data, file, dan folder. |
+| `code-convention.md` | **Code Conventions** | Standar penulisan kode, pola arsitektur, dan paradigma *clean code*. |
+| `component-rules.md` | **Component Rules** | Standar pembuatan komponen UI, *props*, dan hierarki (React/Vue/dsb). |
+| `styling-convention.md` | **Styling Rules** | Konvensi *styling* menggunakan framework CSS (Tailwind, SCSS, dsb). |
+| `api-data-fetching.md` | **API & Data Fetching** | Standar pemanggilan API, *error handling*, validasi payload, dan *loading*. |
+| `state-management.md` | **State Management** | Aturan pengelolaan *state* lokal dan global (Zustand, Redux, dsb). |
+| `performance-optimization.md`| **Performance Rules** | Praktik optimasi performa seperti *memoization* atau *lazy loading*. |
+| `git-workflow.md` | **Git Rules** | Konvensi format pesan *commit*, penamaan *branch*, dan *workflow*. |
+| `testing-convention.md` | **Testing** | Aturan penulisan *unit test*, *integration test*, dan metrik *coverage*. |
+| `project-guardrails.md` | **Do Not (Guardrails)** | Hal-hal yang **dilarang keras** dilakukan oleh AI (menghapus komen, dsb). |
+
+> 💡 **Praktik Terbaik:** Konteks umum (seperti *Project Overview*, *Tech Stack Utama*, atau *Environment Variables*) **TIDAK** disarankan menjadi *skill* terpisah. Hal tersebut bersifat referensi makro dan sebaiknya tetap diletakkan di `CLAUDE.md` utama agar selalu dibaca di awal percakapan.
+
+## 🚀 Panduan Penggunaan
+
+1. **Salin Template:**
+   Unduh atau salin file `.md` yang Anda butuhkan dari repositori ini, lalu masukkan ke dalam direktori konfigurasi AI di *root* proyek Anda (misalnya `.claude/skills/` atau `.cursor/rules/`).
+
+2. **Isi Placeholders:**
+   Buka setiap file dan temukan teks dalam kurung siku `[seperti ini]`. Ganti teks tersebut dengan standar aktual proyek Anda.
+   > *Contoh:* Ubah `[Sebutkan framework styling, misal: Tailwind CSS]` menjadi `Tailwind CSS v3`.
+
+3. **Sesuaikan dengan Proyek (Tailoring):**
+   Gunakan hanya *skill* yang relevan. Jika Anda membangun proyek *backend* murni (misalnya dengan Go/Node.js), hapus file `component-rules.md` dan `styling-convention.md`.
+
+4. **Bagikan ke Tim:**
+   Lakukan *commit* terhadap folder *skills* tersebut ke repositori Anda. Dengan demikian, seluruh anggota tim yang menggunakan AI asisten akan secara otomatis mengikuti standar proyek yang identik.
+
+---
+*Didesain untuk mendorong pengembangan yang dibantu AI (AI-assisted development) menjadi lebih terstruktur, efisien, dan profesional.*
